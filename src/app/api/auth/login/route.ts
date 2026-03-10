@@ -42,15 +42,6 @@ export async function POST(request: NextRequest) {
             user: userWithoutPassword,
         });
 
-        // Cookie HttpOnly (SEGURIDAD)
-        response.cookies.set('auth-token', storedUser.token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-            maxAge: 60 * 60 * 24,
-            path: '/',
-        });
-
         return response;
     } catch (error) {
         console.error('Login error:', error);
