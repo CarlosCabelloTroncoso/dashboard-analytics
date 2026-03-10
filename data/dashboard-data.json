@@ -1,0 +1,135 @@
+{
+    "user": {
+        "name": "Juan Pérez",
+        "email": "admin@dashboard.com",
+        "password": "admin123",
+        "role": "Administrador",
+        "avatar": "https://i.pravatar.cc/150?u=admin",
+        "token": "mock-jwt-token-12345"
+    },
+    "metrics": [
+        {
+            "id": "1",
+            "label": "Ventas Totales",
+            "value": "45,231",
+            "unit": "USD",
+            "trend": "up",
+            "change": "+12.5%"
+        },
+        {
+            "id": "2",
+            "label": "Visitas",
+            "value": "12,450",
+            "unit": "usuarios",
+            "trend": "up",
+            "change": "+8.2%"
+        },
+        {
+            "id": "3",
+            "label": "Pedidos",
+            "value": "1,234",
+            "unit": "órdenes",
+            "trend": "down",
+            "change": "-3.1%"
+        },
+        {
+            "id": "4",
+            "label": "Tasa Conversión",
+            "value": "3.24",
+            "unit": "%",
+            "trend": "up",
+            "change": "+1.8%"
+        }
+    ],
+    "chart": {
+        "label": "Rendimiento Mensual",
+        "data": [
+            {
+                "period": "Ene",
+                "sales": 4000,
+                "visits": 2400
+            },
+            {
+                "period": "Feb",
+                "sales": 3000,
+                "visits": 1398
+            },
+            {
+                "period": "Mar",
+                "sales": 2000,
+                "visits": 9800
+            },
+            {
+                "period": "Abr",
+                "sales": 2780,
+                "visits": 3908
+            },
+            {
+                "period": "May",
+                "sales": 1890,
+                "visits": 4800
+            },
+            {
+                "period": "Jun",
+                "sales": 2390,
+                "visits": 3800
+            }
+        ]
+    },
+    "transactions": [
+        {
+            "id": "TXN-001",
+            "date": "2024-01-15",
+            "client": "Empresa ABC",
+            "product": "Plan Premium",
+            "amount": 299.00,
+            "status": "Completado"
+        },
+        {
+            "id": "TXN-002",
+            "date": "2024-01-16",
+            "client": "Startup XYZ",
+            "product": "Plan Básico",
+            "amount": 99.00,
+            "status": "Pendiente"
+        },
+        {
+            "id": "TXN-003",
+            "date": "2024-01-17",
+            "client": "Corporación 123",
+            "product": "Plan Enterprise",
+            "amount": 999.00,
+            "status": "Completado"
+        },
+        {
+            "id": "TXN-004",
+            "date": "2024-01-18",
+            "client": "Freelancer Pro",
+            "product": "Plan Básico",
+            "amount": 99.00,
+            "status": "Cancelado"
+        },
+        {
+            "id": "TXN-005",
+            "date": "2024-01-19",
+            "client": "Tech Solutions",
+            "product": "Plan Premium",
+            "amount": 299.00,
+            "status": "Completado"
+        }
+    ],
+    "targets": [
+        {
+            "metric": "Ventas Mensuales",
+            "current": 45231,
+            "goal": 50000,
+            "percentage": 90
+        },
+        {
+            "metric": "Nuevos Clientes",
+            "current": 156,
+            "goal": 200,
+            "percentage": 78
+        }
+    ]
+}
