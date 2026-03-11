@@ -163,6 +163,8 @@ El endpoint `/api/dashboard` valida el token de la cookie contra el JSON antes d
 
 ## Mejoras que haría con más tiempo
 
+## 🔧 Mejoras que haría con más tiempo
+
 ### Seguridad
 - **Contraseñas hasheadas con bcrypt**: actualmente se comparan en texto plano porque el JSON de prueba las almacena así. En producción: `bcrypt.compare(password, storedHash)`.
 - **JWT firmado con `jose`**: el token actual es un string estático (`"mock-jwt-token-12345"`). Con `jose` se generaría un JWT firmado con una clave secreta y con expiración real verificable en el servidor.
@@ -177,12 +179,8 @@ El endpoint `/api/dashboard` valida el token de la cookie contra el JSON antes d
 - **Interfaces tipadas** para todas las entidades (`User`, `Metric`, `Transaction`, `Target`, `DashboardData`) en `src/types/dashboard.ts`, eliminando todos los `any`.
 
 ### UX y calidad
-- **Tests unitarios** con Vitest + Testing Library en el middleware y los Route Handlers.
 - **`loading.tsx`** en la ruta del dashboard para un estado de carga con Suspense.
 - **`error.tsx`** como Error Boundary para manejar fallos del fetch en la UI.
-- **Responsive design**: el grid de KPI cards no colapsa correctamente en mobile (necesita `grid-cols-2` en breakpoint `sm`).
-- **Metadata API** de Next.js para SEO básico (`title`, `description`).
-- **Animaciones de transición** entre rutas con `framer-motion`.
 
 ---
 
