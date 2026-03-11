@@ -33,105 +33,52 @@ export default function DashboardPage() {
         router.refresh();
     };
 
-    if (!data) return <p style={{ padding: 20 }}>Cargando dashboard...</p>;
+    if (!data) return <p className="p-5">Cargando dashboard...</p>;
 
     const filteredTransactions = data.transactions.filter((t: any) =>
         t.client.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
-        <div
-            style={{
-                fontFamily: 'sans-serif',
-                background: '#f9fafb',
-                minHeight: '100vh',
-                color: '#111827' // COLOR BASE PARA TODO EL TEXTO
-            }}
-        >
+        <div className="font-sans bg-gray-50 min-h-screen text-gray-900">
 
             {/* HEADER */}
-
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '16px 24px',
-                background: '#fff',
-                borderBottom: '1px solid #e5e7eb'
-            }}>
+            <div className="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-200">
                 <div>
-                    <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>📊 Dashboard</h1>
-                    <p style={{ color: '#6b7280' }}>
+                    <h1 className="text-2xl font-bold">📊 Dashboard</h1>
+                    <p className="text-gray-500 text-sm">
                         {data.user.name} • {data.user.role}
                     </p>
                 </div>
-
                 <button
                     onClick={handleLogout}
                     disabled={isLoggingOut}
-                    style={{
-                        padding: '8px 16px',
-                        background: '#ef4444',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '6px',
-                        cursor: 'pointer'
-                    }}
+                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 disabled:opacity-50 transition"
                 >
                     {isLoggingOut ? 'Cerrando...' : 'Cerrar sesión'}
                 </button>
             </div>
 
-
-            <div style={{ padding: 24 }}>
+            <div className="p-6">
 
                 {/* KPI CARDS */}
-
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4,1fr)',
-                    gap: 16,
-                    marginBottom: 30
-                }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {data.metrics.map((metric: any) => (
-                        <div key={metric.id} style={{
-                            background: '#fff',
-                            padding: 20,
-                            borderRadius: 8,
-                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-                        }}>
-                            <p style={{ color: '#6b7280' }}>{metric.label}</p>
-
-                            <h2 style={{
-                                fontSize: 28,
-                                fontWeight: 'bold',
-                                color: '#111827'
-                            }}>
-                                {metric.value} {metric.unit}
+                        <div key={metric.id} className="bg-white p-5 rounded-lg shadow-sm">
+                            <p className="text-gray-500 text-sm">{metric.label}</p>
+                            <h2 className="text-3xl font-bold text-gray-900 my-1">
+                                {metric.value} <span className="text-lg">{metric.unit}</span>
                             </h2>
-
-                            <span style={{
-                                color: metric.trend === 'up' ? '#16a34a' : '#dc2626'
-                            }}>
+                            <span className={metric.trend === 'up' ? 'text-green-600' : 'text-red-600'}>
                                 {metric.change}
                             </span>
                         </div>
                     ))}
                 </div>
 
-
                 {/* CHART */}
-
-                <div style={{
-                    background: '#fff',
-                    padding: 20,
-                    borderRadius: 8,
-                    marginBottom: 30
-                }}>
-                    <h3 style={{ marginBottom: 10 }}>
-                        {data.chart.label}
-                    </h3>
-
+                <div className="bg-white p-5 rounded-lg shadow-sm mb-8">
+                    <h3 className="font-semibold text-gray-800 mb-4">{data.chart.label}</h3>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={data.chart.data}>
                             <CartesianGrid strokeDasharray="3 3" />
@@ -144,104 +91,68 @@ export default function DashboardPage() {
                     </ResponsiveContainer>
                 </div>
 
-
                 {/* TARGET PROGRESS */}
-
-                <div style={{ marginBottom: 30 }}>
-                    <h3>Objetivos</h3>
-
+                <div className="bg-white p-5 rounded-lg shadow-sm mb-8">
+                    <h3 className="font-semibold text-gray-800 mb-4">Objetivos</h3>
                     {data.targets.map((t: any) => (
-                        <div key={t.metric} style={{ marginBottom: 10 }}>
-                            <p>{t.metric}</p>
-
-                            <div style={{
-                                background: '#e5e7eb',
-                                height: 10,
-                                borderRadius: 5
-                            }}>
-                                <div style={{
-                                    width: `${t.percentage}%`,
-                                    background: '#22c55e',
-                                    height: 10,
-                                    borderRadius: 5
-                                }} />
+                        <div key={t.metric} className="mb-4">
+                            <div className="flex justify-between mb-1">
+                                <p className="text-sm text-gray-700">{t.metric}</p>
+                                <span className="text-sm font-medium text-gray-700">{t.percentage}%</span>
                             </div>
-
-                            <span>{t.percentage}%</span>
+                            <div className="bg-gray-200 h-2.5 rounded-full">
+                                <div
+                                    className="bg-green-500 h-2.5 rounded-full"
+                                    style={{ width: `${t.percentage}%` }}
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>
 
-
                 {/* SEARCH */}
-
-                <div style={{ marginBottom: 16 }}>
+                <div className="mb-4">
                     <input
                         placeholder="Buscar cliente..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        style={{
-                            padding: 8,
-                            width: 250,
-                            border: '1px solid #d1d5db',
-                            borderRadius: 6
-                        }}
+                        className="px-3 py-2 border border-gray-300 rounded-md w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
 
-
                 {/* TABLE */}
-
-                <table style={{
-                    width: '100%',
-                    background: '#fff',
-                    borderRadius: 8,
-                    overflow: 'hidden',
-                    borderCollapse: 'collapse'
-                }}>
-                    <thead style={{
-                        background: '#f3f4f6',
-                        color: '#374151'
-                    }}>
-                        <tr>
-                            <th style={{ padding: 10 }}>ID</th>
-                            <th>Fecha</th>
-                            <th>Cliente</th>
-                            <th>Producto</th>
-                            <th>Monto</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-
-                    <tbody style={{ color: '#111827' }}>
-                        {filteredTransactions.map((t: any) => (
-                            <tr key={t.id} style={{ borderTop: '1px solid #e5e7eb' }}>
-                                <td style={{ padding: 10 }}>{t.id}</td>
-                                <td>{t.date}</td>
-                                <td>{t.client}</td>
-                                <td>{t.product}</td>
-                                <td>${t.amount}</td>
-
-                                <td>
-                                    <span style={{
-                                        padding: '4px 8px',
-                                        borderRadius: 6,
-                                        fontSize: 12,
-                                        color: '#fff',
-                                        background:
-                                            t.status === 'Completado'
-                                                ? '#16a34a'
-                                                : t.status === 'Pendiente'
-                                                    ? '#f59e0b'
-                                                    : '#dc2626'
-                                    }}>
-                                        {t.status}
-                                    </span>
-                                </td>
+                <div className="overflow-x-auto rounded-lg shadow-sm">
+                    <table className="w-full bg-white border-collapse">
+                        <thead className="bg-gray-100 text-gray-700">
+                            <tr>
+                                <th className="px-4 py-3 text-left text-sm">ID</th>
+                                <th className="px-4 py-3 text-left text-sm">Fecha</th>
+                                <th className="px-4 py-3 text-left text-sm">Cliente</th>
+                                <th className="px-4 py-3 text-left text-sm">Producto</th>
+                                <th className="px-4 py-3 text-left text-sm">Monto</th>
+                                <th className="px-4 py-3 text-left text-sm">Estado</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="text-gray-900">
+                            {filteredTransactions.map((t: any) => (
+                                <tr key={t.id} className="border-t border-gray-200 hover:bg-gray-50 transition">
+                                    <td className="px-4 py-3 text-sm">{t.id}</td>
+                                    <td className="px-4 py-3 text-sm">{t.date}</td>
+                                    <td className="px-4 py-3 text-sm">{t.client}</td>
+                                    <td className="px-4 py-3 text-sm">{t.product}</td>
+                                    <td className="px-4 py-3 text-sm">${t.amount}</td>
+                                    <td className="px-4 py-3 text-sm">
+                                        <span className={`px-2 py-1 rounded text-xs text-white font-medium
+                                            ${t.status === 'Completado' ? 'bg-green-600' :
+                                                t.status === 'Pendiente' ? 'bg-yellow-500' : 'bg-red-600'}`}>
+                                            {t.status}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>
