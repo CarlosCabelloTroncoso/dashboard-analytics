@@ -211,6 +211,21 @@ npm run lint     # Linting con ESLint
 
 ---
 
+## 🧪 Tests
+
+Tests unitarios implementados con **Vitest** sobre el Route Handler de logout.
+```bash
+npx vitest run
+```
+
+| Test | Estado |
+|---|---|
+| POST /api/auth/logout → retorna `ok: true` | Ok |
+| POST /api/auth/logout → retorna status 200 | Ok |
+| POST /api/auth/logout → elimina cookie auth-token | Ok |
+
+---
+
 ## Supuestos tomados
 
 - **Un único usuario**: el JSON define un solo `user`. Se asumió que no se requiere manejo de múltiples usuarios ni registro.
