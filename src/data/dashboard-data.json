@@ -1,135 +1,370 @@
 {
     "user": {
-        "name": "Juan Pérez",
-        "email": "admin@dashboard.com",
-        "password": "admin123",
-        "role": "Administrador",
-        "avatar": "https://i.pravatar.cc/150?u=admin",
-        "token": "mock-jwt-token-12345"
+        "id": 1,
+        "name": "Valentina Torres",
+        "email": "v.torres@empresa.com",
+        "password": "Frontend2024!",
+        "role": "Gerente Comercial",
+        "avatar": "https://i.pravatar.cc/150?img=47",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mocktoken.signature",
+        "lastLogin": "2024-11-20T09:15:00Z"
     },
     "metrics": [
         {
-            "id": "1",
-            "label": "Ventas Totales",
-            "value": "45,231",
+            "id": "total_revenue",
+            "label": "Ingresos Totales",
+            "value": 284750,
             "unit": "USD",
+            "prefix": "$",
             "trend": "up",
-            "change": "+12.5%"
+            "change": 12.4,
+            "description": "vs. mes anterior"
         },
         {
-            "id": "2",
-            "label": "Visitas",
-            "value": "12,450",
-            "unit": "usuarios",
+            "id": "active_clients",
+            "label": "Clientes Activos",
+            "value": 1843,
+            "unit": "",
+            "prefix": "",
             "trend": "up",
-            "change": "+8.2%"
+            "change": 5.2,
+            "description": "vs. mes anterior"
         },
         {
-            "id": "3",
-            "label": "Pedidos",
-            "value": "1,234",
-            "unit": "órdenes",
-            "trend": "down",
-            "change": "-3.1%"
-        },
-        {
-            "id": "4",
-            "label": "Tasa Conversión",
-            "value": "3.24",
+            "id": "conversion_rate",
+            "label": "Tasa de Conversión",
+            "value": 3.8,
             "unit": "%",
+            "prefix": "",
+            "trend": "down",
+            "change": -0.6,
+            "description": "vs. mes anterior"
+        },
+        {
+            "id": "avg_order_value",
+            "label": "Ticket Promedio",
+            "value": 154.5,
+            "unit": "USD",
+            "prefix": "$",
             "trend": "up",
-            "change": "+1.8%"
+            "change": 8.1,
+            "description": "vs. mes anterior"
+        },
+        {
+            "id": "pending_tasks",
+            "label": "Tareas Pendientes",
+            "value": 27,
+            "unit": "",
+            "prefix": "",
+            "trend": "neutral",
+            "change": 0,
+            "description": "Sin cambio"
+        },
+        {
+            "id": "support_tickets",
+            "label": "Tickets de Soporte",
+            "value": 14,
+            "unit": "",
+            "prefix": "",
+            "trend": "down",
+            "change": -22.2,
+            "description": "vs. mes anterior"
         }
     ],
     "chart": {
-        "label": "Rendimiento Mensual",
+        "label": "Ventas y Visitas — Últimos 12 meses",
+        "xAxisLabel": "Mes",
+        "series": [
+            {
+                "key": "sales",
+                "label": "Ventas (USD)",
+                "color": "#0D7D5A"
+            },
+            {
+                "key": "visits",
+                "label": "Visitas",
+                "color": "#1C2E4A"
+            }
+        ],
         "data": [
             {
-                "period": "Ene",
-                "sales": 4000,
-                "visits": 2400
+                "period": "Dic 2023",
+                "sales": 198400,
+                "visits": 12300
             },
             {
-                "period": "Feb",
-                "sales": 3000,
-                "visits": 1398
+                "period": "Ene 2024",
+                "sales": 175200,
+                "visits": 10800
             },
             {
-                "period": "Mar",
-                "sales": 2000,
-                "visits": 9800
+                "period": "Feb 2024",
+                "sales": 182600,
+                "visits": 11400
             },
             {
-                "period": "Abr",
-                "sales": 2780,
-                "visits": 3908
+                "period": "Mar 2024",
+                "sales": 210300,
+                "visits": 13200
             },
             {
-                "period": "May",
-                "sales": 1890,
-                "visits": 4800
+                "period": "Abr 2024",
+                "sales": 224700,
+                "visits": 14500
             },
             {
-                "period": "Jun",
-                "sales": 2390,
-                "visits": 3800
+                "period": "May 2024",
+                "sales": 238100,
+                "visits": 15800
+            },
+            {
+                "period": "Jun 2024",
+                "sales": 215600,
+                "visits": 13900
+            },
+            {
+                "period": "Jul 2024",
+                "sales": 229400,
+                "visits": 14700
+            },
+            {
+                "period": "Ago 2024",
+                "sales": 248900,
+                "visits": 16200
+            },
+            {
+                "period": "Sep 2024",
+                "sales": 261200,
+                "visits": 17100
+            },
+            {
+                "period": "Oct 2024",
+                "sales": 253700,
+                "visits": 16600
+            },
+            {
+                "period": "Nov 2024",
+                "sales": 284750,
+                "visits": 18400
             }
         ]
     },
     "transactions": [
         {
-            "id": "TXN-001",
-            "date": "2024-01-15",
-            "client": "Empresa ABC",
-            "product": "Plan Premium",
-            "amount": 299.00,
-            "status": "Completado"
-        },
-        {
-            "id": "TXN-002",
-            "date": "2024-01-16",
-            "client": "Startup XYZ",
-            "product": "Plan Básico",
-            "amount": 99.00,
-            "status": "Pendiente"
-        },
-        {
-            "id": "TXN-003",
-            "date": "2024-01-17",
-            "client": "Corporación 123",
+            "id": "TXN-0091",
+            "date": "2024-11-20",
+            "client": "Acme Corp",
             "product": "Plan Enterprise",
-            "amount": 999.00,
-            "status": "Completado"
+            "category": "Suscripción",
+            "amount": 4800,
+            "status": "Completado",
+            "invoiceUrl": "#"
         },
         {
-            "id": "TXN-004",
-            "date": "2024-01-18",
-            "client": "Freelancer Pro",
-            "product": "Plan Básico",
-            "amount": 99.00,
-            "status": "Cancelado"
+            "id": "TXN-0090",
+            "date": "2024-11-19",
+            "client": "Devtech SRL",
+            "product": "Consultoría Premium",
+            "category": "Servicios",
+            "amount": 1200,
+            "status": "Completado",
+            "invoiceUrl": "#"
         },
         {
-            "id": "TXN-005",
-            "date": "2024-01-19",
-            "client": "Tech Solutions",
-            "product": "Plan Premium",
-            "amount": 299.00,
-            "status": "Completado"
+            "id": "TXN-0089",
+            "date": "2024-11-18",
+            "client": "BrightPath Inc.",
+            "product": "Plan Business",
+            "category": "Suscripción",
+            "amount": 1800,
+            "status": "Pendiente",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0088",
+            "date": "2024-11-17",
+            "client": "Nova Solutions",
+            "product": "Integración API",
+            "category": "Servicios",
+            "amount": 950,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0087",
+            "date": "2024-11-16",
+            "client": "GreenLeaf Co.",
+            "product": "Plan Starter",
+            "category": "Suscripción",
+            "amount": 299,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0086",
+            "date": "2024-11-15",
+            "client": "Stellar Media",
+            "product": "Soporte Avanzado",
+            "category": "Soporte",
+            "amount": 600,
+            "status": "En proceso",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0085",
+            "date": "2024-11-14",
+            "client": "UrbanTech SA",
+            "product": "Plan Enterprise",
+            "category": "Suscripción",
+            "amount": 4800,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0084",
+            "date": "2024-11-13",
+            "client": "Nexus Group",
+            "product": "Onboarding",
+            "category": "Servicios",
+            "amount": 750,
+            "status": "Cancelado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0083",
+            "date": "2024-11-12",
+            "client": "Pulsar Dynamics",
+            "product": "Plan Business",
+            "category": "Suscripción",
+            "amount": 1800,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0082",
+            "date": "2024-11-11",
+            "client": "Helix Data",
+            "product": "Consultoría Premium",
+            "category": "Servicios",
+            "amount": 1200,
+            "status": "Pendiente",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0081",
+            "date": "2024-11-10",
+            "client": "CloudBridge Ltd.",
+            "product": "Integración API",
+            "category": "Servicios",
+            "amount": 950,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0080",
+            "date": "2024-11-09",
+            "client": "Redwood Ventures",
+            "product": "Plan Starter",
+            "category": "Suscripción",
+            "amount": 299,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0079",
+            "date": "2024-11-08",
+            "client": "Frontline Corp.",
+            "product": "Soporte Avanzado",
+            "category": "Soporte",
+            "amount": 600,
+            "status": "Completado",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0078",
+            "date": "2024-11-07",
+            "client": "Acme Corp",
+            "product": "Onboarding",
+            "category": "Servicios",
+            "amount": 750,
+            "status": "En proceso",
+            "invoiceUrl": "#"
+        },
+        {
+            "id": "TXN-0077",
+            "date": "2024-11-06",
+            "client": "Devtech SRL",
+            "product": "Plan Business",
+            "category": "Suscripción",
+            "amount": 1800,
+            "status": "Completado",
+            "invoiceUrl": "#"
         }
     ],
     "targets": [
         {
-            "metric": "Ventas Mensuales",
-            "current": 45231,
-            "goal": 50000,
-            "percentage": 90
+            "metric": "Ingresos Mensuales",
+            "current": 284750,
+            "goal": 300000,
+            "percentage": 94.9,
+            "unit": "USD",
+            "color": "#0D7D5A"
         },
         {
             "metric": "Nuevos Clientes",
-            "current": 156,
-            "goal": 200,
-            "percentage": 78
+            "current": 87,
+            "goal": 100,
+            "percentage": 87,
+            "unit": "",
+            "color": "#1C2E4A"
+        },
+        {
+            "metric": "NPS Score",
+            "current": 68,
+            "goal": 75,
+            "percentage": 90.7,
+            "unit": "pts",
+            "color": "#F59E0B"
+        },
+        {
+            "metric": "Resolución de Tickets",
+            "current": 92,
+            "goal": 95,
+            "percentage": 96.8,
+            "unit": "%",
+            "color": "#3B82F6"
+        }
+    ],
+    "topProducts": [
+        {
+            "name": "Plan Enterprise",
+            "revenue": 110400,
+            "units": 23,
+            "percentage": 38.8
+        },
+        {
+            "name": "Plan Business",
+            "revenue": 79200,
+            "units": 44,
+            "percentage": 27.8
+        },
+        {
+            "name": "Consultoría Premium",
+            "revenue": 44400,
+            "units": 37,
+            "percentage": 15.6
+        },
+        {
+            "name": "Plan Starter",
+            "revenue": 25457,
+            "units": 85,
+            "percentage": 8.9
+        },
+        {
+            "name": "Integración API",
+            "revenue": 25293,
+            "units": 26,
+            "percentage": 8.9
         }
     ]
 }

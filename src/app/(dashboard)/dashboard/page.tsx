@@ -83,7 +83,7 @@ export default function DashboardPage() {
                         <BarChart data={data.chart.data}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="period" />
-                            <YAxis />
+                            <YAxis width={80} />
                             <Tooltip />
                             <Bar dataKey="sales" fill="#3b82f6" />
                             <Bar dataKey="visits" fill="#10b981" />

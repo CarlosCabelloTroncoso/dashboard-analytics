@@ -112,13 +112,13 @@ export default function LoginPage() {
 
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                     <p className="text-sm font-medium text-blue-800">
-                        🔑 Credenciales de prueba:
+                        Credenciales de prueba:
                     </p>
                     <p className="text-sm text-blue-600">
-                        Email: admin@dashboard.com
+                        Email: v.torres@empresa.com
                     </p>
                     <p className="text-sm text-blue-600">
-                        Password: admin123
+                        Password: Frontend2024!
                     </p>
                 </div>
 
