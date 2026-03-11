@@ -40,7 +40,7 @@ export default function DashboardPage() {
     );
 
     return (
-        <div className="font-sans bg-gray-50 min-h-screen text-gray-900">
+        <div className="font-sans bg-gray-50 min-h-screen text-gray-900 animate-fade-in">
 
             {/* HEADER */}
             <div className="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-200">
@@ -64,7 +64,7 @@ export default function DashboardPage() {
                 {/* KPI CARDS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {data.metrics.map((metric: any) => (
-                        <div key={metric.id} className="bg-white p-5 rounded-lg shadow-sm">
+                        <div key={metric.id} className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
                             <p className="text-gray-500 text-sm">{metric.label}</p>
                             <h2 className="text-3xl font-bold text-gray-900 my-1">
                                 {metric.value} <span className="text-lg">{metric.unit}</span>
